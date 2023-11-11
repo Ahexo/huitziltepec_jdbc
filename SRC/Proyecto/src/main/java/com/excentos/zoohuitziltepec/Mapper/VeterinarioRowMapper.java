@@ -19,7 +19,25 @@ public class VeterinarioRowMapper implements RowMapper<Veterinario> {
     
     @Override
     public Veterinario mapRow(ResultSet rs, int rowNum) throws SQLException {
-
+        Veterinario veterinario = new Veterinario();
+        //cliente.setIdCliente(rs.getInt("idCliente"));
+        veterinario.setRFCVeterinario(rs.getString("RFCVeterinario"));
+        veterinario.setNombre(rs.getString("nombre"));
+        veterinario.setaPaterno(rs.getString("aPaterno"));
+        veterinario.setaMaterno(rs.getString("aMaterno"));
+        veterinario.setNacimiento(rs.getDate("nacimiento"));
+        veterinario.setGenero(rs.getString("genero").charAt(0));
+        veterinario.setCalle(rs.getString("calle"));
+        veterinario.setNumExterior(rs.getInt("numExterior"));
+        veterinario.setNumInterior(rs.getInt("numInterior"));
+        veterinario.setColonia(rs.getString("colonia"));
+        veterinario.setEstado(rs.getString("estado"));
+        veterinario.setInicioContrato(rs.getDate("inicioContrato"));
+        veterinario.setFinContrato(rs.getDate("finContrato"));
+        veterinario.setEspecialidad(rs.getString("especialidad"));
+        veterinario.setSalario(rs.getFloat("salario"));
+        
+        return veterinario;
     }
     
 }

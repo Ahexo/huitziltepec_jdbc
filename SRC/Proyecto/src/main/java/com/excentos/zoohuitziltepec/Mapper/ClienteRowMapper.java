@@ -19,7 +19,15 @@ public class ClienteRowMapper implements RowMapper<Cliente> {
     
     @Override
     public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Cliente cliente = new Cliente();
+        cliente.setIdCliente(rs.getInt("idCliente"));
+        cliente.setNombre(rs.getString("nombre"));
+        cliente.setaPaterno(rs.getString("aPaterno"));
+        cliente.setaMaterno(rs.getString("aMaterno"));
+        cliente.setNacimiento(rs.getDate("nacimiento"));
+        cliente.setGenero(rs.getString("genero").charAt(0));
         
+        return cliente;
     }
     
 }
