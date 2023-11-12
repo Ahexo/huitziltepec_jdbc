@@ -30,32 +30,57 @@ public class ClienteServicioImp implements ClienteServicio {
     
     @Resource
     ClienteRepositorio clienteRepo;
-            
+    
+    /**
+     * Obtiene todos los clientes registrados en la base de datos.
+     * @return Lista de clientes.
+     */
     @Override
     public List<Cliente> findAll() {
         return clienteRepo.findAll(); 
     }
 
+    /**
+     * Obtiene un cliente en particular en base a su ID
+     * @return Cliente buscado contenido en una lista.
+     * @param idCliente Número identificador del cliente.
+     */
     @Override
-    public List<Cliente> selectCliente(int idCliente) {
+    public Cliente selectCliente(int idCliente) {
         return clienteRepo.selectCliente(idCliente);
     }
     
+    /**
+     * Inserta un nuevo cliente en la base de datos.
+     * @param cliente Cliente a insertar.
+     */
     @Override
     public void insertCliente(Cliente cliente) {
         clienteRepo.insertCliente(cliente);
     }
 
+    /**
+     * Emite una actualización de un cliente en la base de datos.
+     * @param cliente Cliente a actualizar.
+     */
     @Override
     public void updateCliente(Cliente cliente) {
         clienteRepo.updateCliente(cliente);
     }
 
+    /**
+     * Ejecuta una operación de actualización de un cliente accediendo al JDBC.
+     * @param cliente Cliente a actualizar.
+     */
     @Override
     public void executeUpdateCliente(Cliente cliente) {
         clienteRepo.executeUpdateCliente(cliente);
     }
 
+    /**
+     * Borra un cliente de la base de datos.
+     * @param cliente Cliente a borrar.
+     */
     @Override
     public void deleteCliente(Cliente cliente) {
         clienteRepo.deleteCliente(cliente);

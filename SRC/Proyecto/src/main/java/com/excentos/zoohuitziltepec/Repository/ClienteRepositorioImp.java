@@ -56,12 +56,21 @@ public class ClienteRepositorioImp implements ClienteRepositorio {
     /**
      * Obtener un cliente de la base de datos en base a su ID
      * @param idCliente Número de indentificación del cliente. 
-     * @return Cliente buscado contenido en una lista.
+     * @return Cliente buscado. Si no se encontró el ID, se regresa un objeto cliente vacío.
      */
     @Override
-    public List<Cliente> selectCliente(int idCliente) {
+    public Cliente selectCliente(int idCliente) {
         String sql = "SELECT * FROM Cliente where idCliente=" + idCliente;
-        return template.query(sql, new ClienteRowMapper());
+        Cliente resultado;
+        
+        try {
+            resultado = template.query(sql, new ClienteRowMapper()).get(0);
+        }
+        catch (IndexOutOfBoundsException exc) {
+            return new Cliente();
+        }
+        
+        return resultado;
     }
     
     /**

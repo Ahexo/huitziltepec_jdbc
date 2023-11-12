@@ -36,7 +36,7 @@ public interface ClienteServicio {
      * @return Cliente buscado contenido en una lista.
      * @param idCliente Número identificador del cliente.
      */
-    List<Cliente> selectCliente(int idCliente);
+    Cliente selectCliente(int idCliente);
 
     /**
      * Inserta un nuevo cliente en la base de datos.

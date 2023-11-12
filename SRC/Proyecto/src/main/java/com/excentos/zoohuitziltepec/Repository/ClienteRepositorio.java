@@ -33,9 +33,9 @@ public interface ClienteRepositorio {
     /**
      * Obtener un cliente de la base de datos en base a su ID
      * @param idCliente Número de indentificación del cliente. 
-     * @return Cliente buscado contenido en una lista.
+     * @return Cliente buscado o cliente vacio si es que no existe uno con el ID especificado.
      */
-    List<Cliente> selectCliente(int idCliente);
+    Cliente selectCliente(int idCliente);
 
     /**
      * Inserta un nuevo cliente en la base de datos.

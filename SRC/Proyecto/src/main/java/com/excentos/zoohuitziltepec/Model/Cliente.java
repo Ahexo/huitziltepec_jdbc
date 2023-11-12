@@ -30,7 +30,7 @@ public class Cliente {
     
     
     public Cliente() {
-        
+        this.genero = 'x';
     }
 
     /**

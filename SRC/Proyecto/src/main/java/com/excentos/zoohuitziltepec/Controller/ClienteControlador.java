@@ -48,13 +48,13 @@ public class ClienteControlador {
        return clienteServ.findAll();
    }
    
-    /**
+   /**
     * Obtiene un cliente de la base de datos dado su ID.
     * @param idCliente Número de identificación del cliente.
     * @return Lista con el cliente. Si está vacía, es porque no hay clientes con ese ID.
     */
    @GetMapping(value = "/cliente")
-   public List<Cliente> getCliente(@RequestParam int idCliente){
+   public Cliente getCliente(@RequestParam int idCliente){
        return clienteServ.selectCliente(idCliente);
    }
    
