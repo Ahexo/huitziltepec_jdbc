@@ -1,13 +1,25 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Fundamentos de Bases de Datos
+ * Grupo 7803, Semestre 2024-1
+ * 12 de noviembre de 2023
+ * Práctica 8: JDBC
+ * Equipo: Los Excentos
+ * Alejandro Axel Rodríguez Sánchez (315247697)
+ * Brenda Ayala Flores (319051287)
+ * Jorge Daniel Velasco García (319238545)
+ * José Fernando Cervantes Duarte (422100827)
+ * Roberto Samuel Sánchez Rosas (318355159)
  */
+
 package com.excentos.zoohuitziltepec.Model;
 
 import java.util.Date;
 
 /**
- * 
+ * Este es un modelo de una tupla de la tabla Veterinario en la base de datos del Zoológico de Huitziltepec.
+ * Esta captura el RFC, su nombre, apellidos paterno y materno, su fecha de nacimiento, la inicial de su género, 
+ * domicilio (calle, número exterior, interior, colonia y estado), fechas de inicio y fin de contrato, su especialidad
+ * y su salario. 
  * @author ahexo
  */
 public class Veterinario {

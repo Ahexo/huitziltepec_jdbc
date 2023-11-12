@@ -1,7 +1,16 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Fundamentos de Bases de Datos
+ * Grupo 7803, Semestre 2024-1
+ * 12 de noviembre de 2023
+ * Práctica 8: JDBC
+ * Equipo: Los Excentos
+ * Alejandro Axel Rodríguez Sánchez (315247697)
+ * Brenda Ayala Flores (319051287)
+ * Jorge Daniel Velasco García (319238545)
+ * José Fernando Cervantes Duarte (422100827)
+ * Roberto Samuel Sánchez Rosas (318355159)
  */
+
 package com.excentos.zoohuitziltepec.Repository;
 
 import com.excentos.zoohuitziltepec.Mapper.ClienteRowMapper;
@@ -21,7 +30,9 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Este componente recibe las distintas consultas y operaciones solicitadas desde
+ * el controlador y pre-procesadas por el servicio, para realizarlas por medio
+ * de JDBC en la tabla de Clientes de la base de datos del Zoológico de Huitziltepec.
  * @author ahexo
  */
 @Repository
@@ -33,11 +44,30 @@ public class ClienteRepositorioImp implements ClienteRepositorio {
         this.template = template;
     }
     
+    /**
+     * Obtiene todos los clientes registrados en la base de datos.
+     * @return Lista de clientes.
+     */
     @Override
     public List<Cliente> findAll() {
         return template.query("SELECT * FROM Cliente", new ClienteRowMapper());
     }
 
+    /**
+     * Obtener un cliente de la base de datos en base a su ID
+     * @param idCliente Número de indentificación del cliente. 
+     * @return Cliente buscado contenido en una lista.
+     */
+    @Override
+    public List<Cliente> selectCliente(int idCliente) {
+        String sql = "SELECT * FROM Cliente where idCliente=" + idCliente;
+        return template.query(sql, new ClienteRowMapper());
+    }
+    
+    /**
+     * Inserta un nuevo cliente en la base de datos.
+     * @param cliente Cliente a insertar.
+     */
     @Override
     public void insertCliente(Cliente cliente) {
         final String sql = "INSERT INTO Cliente(idCliente, nombre, aPaterno, aMaterno, nacimiento, genero) " +
@@ -53,6 +83,10 @@ public class ClienteRepositorioImp implements ClienteRepositorio {
         template.update(sql, param, holder);
     }
 
+    /**
+     * Emite una actualización de un cliente en la base de datos.
+     * @param cliente Cliente a actualizar.
+     */
     @Override
     public void updateCliente(Cliente cliente) {
         final String sql = "UPDATE Cliente SET idCliente=:idCliente, nombre=:nombre, aPaterno=:aPaterno, nacimiento=:nacimiento, genero=:genero WHERE idCliente=:idCliente";
@@ -68,6 +102,10 @@ public class ClienteRepositorioImp implements ClienteRepositorio {
         template.update(sql, param, holder);
     }
 
+    /**
+     * Hace efectiva una operación de actualización de un cliente.
+     * @param cliente Cliente a actualizar.
+     */
     @Override
     public void executeUpdateCliente(Cliente cliente) {
         final String sql = "UPDATE Cliente SET idCliente=:idCliente, nombre=:nombre, aPaterno=:aPaterno, nacimiento=:nacimiento, genero=:genero WHERE idCliente=:idCliente";
@@ -89,6 +127,10 @@ public class ClienteRepositorioImp implements ClienteRepositorio {
         });
     }
 
+    /**
+     * Borra un cliente de la base de datos.
+     * @param cliente Cliente a borrar.
+     */
     @Override
     public void deleteCliente(Cliente cliente) {
         final String sql = "DELETE FROM Cliente WHERE idCliente=:idCliente";

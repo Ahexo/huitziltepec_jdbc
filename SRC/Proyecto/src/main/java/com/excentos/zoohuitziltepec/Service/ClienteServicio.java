@@ -1,14 +1,26 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ * Fundamentos de Bases de Datos
+ * Grupo 7803, Semestre 2024-1
+ * 12 de noviembre de 2023
+ * Práctica 8: JDBC
+ * Equipo: Los Excentos
+ * Alejandro Axel Rodríguez Sánchez (315247697)
+ * Brenda Ayala Flores (319051287)
+ * Jorge Daniel Velasco García (319238545)
+ * José Fernando Cervantes Duarte (422100827)
+ * Roberto Samuel Sánchez Rosas (318355159)
  */
+
 package com.excentos.zoohuitziltepec.Service;
 
 import com.excentos.zoohuitziltepec.Model.Cliente;
 import java.util.List;
 
 /**
- * 
+ * Es necesario vincular el controlador con el repositorio para obtener o hacer
+ * efectivas las consultas, para esto hay que implementar los métodos aqui 
+ * especificados en una nueva clase que comunique a ambos objetos, la cual 
+ * llamaremos "servicio".
  * @author ahexo
  */
 public interface ClienteServicio {
@@ -18,6 +30,13 @@ public interface ClienteServicio {
      * @return Lista de clientes.
      */
     List<Cliente> findAll();
+    
+    /**
+     * Obtiene un cliente en particular en base a su ID
+     * @return Cliente buscado contenido en una lista.
+     * @param idCliente Número identificador del cliente.
+     */
+    List<Cliente> selectCliente(int idCliente);
 
     /**
      * Inserta un nuevo cliente en la base de datos.

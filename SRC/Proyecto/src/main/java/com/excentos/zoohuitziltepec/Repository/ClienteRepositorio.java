@@ -1,14 +1,25 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ * Fundamentos de Bases de Datos
+ * Grupo 7803, Semestre 2024-1
+ * 12 de noviembre de 2023
+ * Práctica 8: JDBC
+ * Equipo: Los Excentos
+ * Alejandro Axel Rodríguez Sánchez (315247697)
+ * Brenda Ayala Flores (319051287)
+ * Jorge Daniel Velasco García (319238545)
+ * José Fernando Cervantes Duarte (422100827)
+ * Roberto Samuel Sánchez Rosas (318355159)
  */
+
 package com.excentos.zoohuitziltepec.Repository;
 
 import com.excentos.zoohuitziltepec.Model.Cliente;
 import java.util.List;
 
 /**
- * Interfaz que contiene los métodos para el manejo de la tabla Cliente en la base de datos.
+ * El repositorio se comunica directamente con la base de datos por medio de JDBC
+ * haciendo uso de consultas predefinidas, las cuales se deben implementar siguiendo
+ * las firmas y descipciones especificadas en esta interfaz.
  * @author ahexo
  */
 public interface ClienteRepositorio {
@@ -18,6 +29,13 @@ public interface ClienteRepositorio {
      * @return Lista de clientes.
      */
     List<Cliente> findAll();
+    
+    /**
+     * Obtener un cliente de la base de datos en base a su ID
+     * @param idCliente Número de indentificación del cliente. 
+     * @return Cliente buscado contenido en una lista.
+     */
+    List<Cliente> selectCliente(int idCliente);
 
     /**
      * Inserta un nuevo cliente en la base de datos.
@@ -32,7 +50,7 @@ public interface ClienteRepositorio {
     void updateCliente(Cliente cliente);
 
     /**
-     * Ejecuta una operación de actualización de un cliente accediendo al JDBC.
+     * Hace efectiva una operación de actualización de un cliente.
      * @param cliente Cliente a actualizar.
      */
     void executeUpdateCliente(Cliente cliente);
