@@ -23,6 +23,15 @@ public class Cliente {
         
     }
 
+    /**
+     * Constructor de la clase Cliente.
+     * @param idCliente ID del cliente.
+     * @param nombre Nombre(s) del cliente.
+     * @param aPaterno Apellido paterno del cliente.
+     * @param aMaterno Apellido materno del cliente.
+     * @param nacimiento Fecha de nacimiento del cliente.
+     * @param genero Género del cliente, representado por una inicial mayúscula (M,F,X).
+     */
     public Cliente(Integer idCliente, String nombre, String aPaterno, String aMaterno, Date nacimiento, char genero) {
         this.idCliente = idCliente;
         this.nombre = nombre;

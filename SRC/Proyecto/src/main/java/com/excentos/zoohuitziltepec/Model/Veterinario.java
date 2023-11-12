@@ -7,7 +7,7 @@ package com.excentos.zoohuitziltepec.Model;
 import java.util.Date;
 
 /**
- *
+ * 
  * @author ahexo
  */
 public class Veterinario {
@@ -31,6 +31,24 @@ public class Veterinario {
         
     }
 
+    /**
+     * Constructor de la clase Veterinario.
+     * @param RFCVeterinario RFC del veterinario.
+     * @param nombre Nombre(s) del veterinario.
+     * @param aPaterno Apellido paterno del veterinario.
+     * @param aMaterno Apellido materno del veterinario.
+     * @param nacimiento Fecha de nacimiento del veterinario.
+     * @param genero Género del veterinario, representado por una inicial mayúscula (M,F,X).
+     * @param calle Calle del domicilio del veterinario.
+     * @param numExterior Número exterior del domicilio del veterinario.
+     * @param numInterior Número interior del domicilio del veterinario.
+     * @param colonia Colonia donde vive el veterinario.
+     * @param estado Estado donde reside el veterinario.
+     * @param inicioContrato Fecha de inicio del contrato del veterinario.
+     * @param finContrato Fecha de fin del contrato del veterinario.
+     * @param especialidad Especialidad del veterinario.
+     * @param salario Salario actual del veterinario.
+     */
     public Veterinario(String RFCVeterinario, String nombre, String aPaterno, String aMaterno, Date nacimiento, char genero, String calle, Integer numExterior, Integer numInterior, String colonia, String estado, Date inicioContrato, Date finContrato, String especialidad, Float salario) {
         this.RFCVeterinario = RFCVeterinario;
         this.nombre = nombre;
@@ -48,8 +66,6 @@ public class Veterinario {
         this.especialidad = especialidad;
         this.salario = salario;
     }
-    
-    
 
     /**
      * @return El RFC del veterinario.

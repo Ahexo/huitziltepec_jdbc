@@ -27,26 +27,46 @@ public class VeterinarioControlador {
    @Resource
    VeterinarioServicio veterinarioServ;
    
+   /**
+    * Obtiene todos los veterinarios registrados en la base de datos.
+    * @return Lista de veterinarios.
+    */
    @GetMapping(value= "/veterinarioList")
    public List<Veterinario> getVeterinario(){
        return veterinarioServ.findAll();
    }
    
+    /**
+     * Inserta un nuevo veterinario en la base de datos.
+     * @param veterinario Veterinario a insertar.
+     */
    @PostMapping(value= "/createVeterinario")
    public void createVeterinario(@RequestBody Veterinario veterinario){
        veterinarioServ.insertVeterinario(veterinario);
    }
    
+    /**
+     * Emite una actualización de un veterinario en la base de datos.
+     * @param veterinario Veterinario a actualizar.
+     */
    @PutMapping(value = "/updateVeterinario")
    public void updateVeterinario(@RequestBody Veterinario veterinario){
        veterinarioServ.updateVeterinario(veterinario);
    }
    
+    /**
+     * Ejecuta una operación de actualización de un veterinario en la base de datos.
+     * @param veterinario Veterinario a actualizar.
+     */
    @PutMapping(value = "/executeUpdateVeterinario")
    public void executeUpdateVeterinario(@RequestBody Veterinario veterinario){
        veterinarioServ.executeUpdateVeterinario(veterinario);
    }
    
+    /**
+     * Borra un veterinario de la base de datos.
+     * @param veterinario Veterinario a borrar.
+     */
    @DeleteMapping(value = "/deleteVeterinarioById")
    public void borrarVeterinario(@RequestBody Veterinario veterinario){
        veterinarioServ.deleteVeterinario(veterinario);
