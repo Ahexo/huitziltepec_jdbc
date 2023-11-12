@@ -74,7 +74,7 @@ public class ClienteRepositorioImp implements ClienteRepositorio {
     public void executeUpdateCliente(Cliente cliente) {
         final String sql = "UPDATE Cliente SET idCliente=:idCliente, nombre=:nombre, aPaterno=:aPaterno, nacimiento=:nacimiento, genero=:genero WHERE idCliente=:idCliente";
 
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String,Object> map = new HashMap<String,Object>();
         map.put("idCliente", cliente.getIdCliente());
         map.put("nombre", cliente.getNombre());
         map.put("aPaterno", cliente.getaPaterno());
@@ -94,7 +94,7 @@ public class ClienteRepositorioImp implements ClienteRepositorio {
     @Override
     public void deleteCliente(Cliente cliente) {
         final String sql = "DELETE FROM Cliente WHERE idCliente=:idCliente";
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String,Object> map = new HashMap<String,Object>();
         map.put("idCliente",cliente.getIdCliente());
             template.execute(sql,map,new PreparedStatementCallback<Object>(){
                 @Override
