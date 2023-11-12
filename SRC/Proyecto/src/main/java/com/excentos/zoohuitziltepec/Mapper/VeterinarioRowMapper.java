@@ -5,7 +5,6 @@
 package com.excentos.zoohuitziltepec.Mapper;
 
 import com.excentos.zoohuitziltepec.Model.Veterinario;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;

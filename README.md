@@ -15,15 +15,18 @@ El directorio que hay que abrir como proyecto en NetBeans es /SRC/Proyecto. Es n
 - [x] Repository/ClienteRepositorioImp.java
 - [x] Mapper/ClienteRowMapper.java 
 - [x] Service/ClienteServicio.java 
-- [ ] Service/ClienteServicioImp.java 
+- [x] Service/ClienteServicioImp.java 
+- [x] Controller/ClienteControlador.java 
 
 - [x] Model/Veterinario.java 
 - [x] Repository/VeterinarioRepositorio.java
-- [ ] Repository/VeterinarioRepositorioImp.java
+- [x] Repository/VeterinarioRepositorioImp.java
 - [x] Mapper/VeterinarioRowMapper.java 
 - [x] Service/VeterinarioServicio.java 
-- [ ] Service/VeterinarioServicioImp.java 
+- [x] Service/VeterinarioServicioImp.java 
+- [x] Controller/VeterinarioControlador.java
 
+- [ ] Documentar.
 - [ ] Las vistas, si da tiempo.
 
 
