@@ -20,11 +20,20 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 /**
- *
+ * Este RowMapper transforma el resultado de una consulta SQL en la tabla de
+ * clientes en un objeto cliente, operable por el resto del programa.
  * @author ahexo
  */
 public class ClienteRowMapper implements RowMapper<Cliente> {
     
+    /**
+     * Construye un objeto Cliente mapeando los datos de una entrada/tupla con los
+     * datos de un cliente.
+     * @param rs Conjunto de valores de la tupla obtenida de la consulta SQL.
+     * @param rowNum Número de la entrada de la tupla.
+     * @return Objeto Cliente con los valores obtenidos de la tupla.
+     * @throws SQLException.
+     */
     @Override
     public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
         Cliente cliente = new Cliente();

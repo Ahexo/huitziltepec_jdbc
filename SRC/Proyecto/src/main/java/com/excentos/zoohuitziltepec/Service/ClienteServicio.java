@@ -20,7 +20,7 @@ import java.util.List;
  * Es necesario vincular el controlador con el repositorio para obtener o hacer
  * efectivas las consultas, para esto hay que implementar los métodos aqui 
  * especificados en una nueva clase que comunique a ambos objetos, la cual 
- * llamaremos "servicio".
+ * llamaremos "servicio para clientes".
  * @author ahexo
  */
 public interface ClienteServicio {
@@ -33,7 +33,7 @@ public interface ClienteServicio {
     
     /**
      * Obtiene un cliente en particular en base a su ID
-     * @return Cliente buscado contenido en una lista.
+     * @return Cliente buscado. Si no existe, se entrega un objeto Cliente vacío.
      * @param idCliente Número identificador del cliente.
      */
     Cliente selectCliente(int idCliente);

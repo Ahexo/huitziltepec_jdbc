@@ -30,7 +30,9 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Este componente recibe las distintas consultas y operaciones solicitadas desde
+ * el controlador y pre-procesadas por el servicio, para realizarlas por medio
+ * de JDBC en la tabla de veterinarios de la base de datos del Zoológico de Huitziltepec.
  * @author ahexo
  */
 @Repository
@@ -42,11 +44,40 @@ public class VeterinarioRepositorioImp implements VeterinarioRepositorio {
         this.template = template;
     }
     
+    /**
+     * Obtiene todos los veterinarios registrados en la base de datos.
+     * @return Lista de veterinarios.
+     */
     @Override
     public List<Veterinario> findAll() {
         return template.query("SELECT * FROM Veterinario", new VeterinarioRowMapper());
     }
+    
+    /**
+     * Obtener un veterinario de la base de datos en base a su RFC
+     * @param RFC RFC del veterinario.
+     * @return Veterinario buscado o un objeto vacio si es que no existe uno con el RFC especificado.
+     */
+    @Override
+    public Veterinario selectVeterinario(String RFC) {
+        String sql = String.format("SELECT * FROM Veterinario WHERE RFCVeterinario= \'%s\'", RFC);
+        
+        Veterinario resultado;
+        
+        try {
+            resultado = template.query(sql, new VeterinarioRowMapper()).get(0);
+        }
+        catch (IndexOutOfBoundsException exc) {
+            return new Veterinario();
+        }
+        
+        return resultado;
+    }
 
+    /**
+     * Inserta un nuevo veterinario en la base de datos.
+     * @param cliente Veterinario a insertar.
+     */
     @Override
     public void insertVeterinario(Veterinario veterinario) {
         final String sql = "INSERT INTO Veterinario(RFCVeterinario, nombre, aPaterno, aMaterno, nacimiento, genero, calle, numExterior, numInterior, colonia, estado, inicioContrato, finContrato, especialidad, salario) " +
@@ -71,6 +102,10 @@ public class VeterinarioRepositorioImp implements VeterinarioRepositorio {
         template.update(sql, param, holder);
     }
 
+    /**
+     * Emite una actualización de un veterinario en la base de datos.
+     * @param cliente Veterinario a actualizar.
+     */
     @Override
     public void updateVeterinario(Veterinario veterinario) {
         final String sql = "UPDATE Cliente SET RFCVeterinario=:RFCVeterinario, nombre=:nombre, aPaterno=:aPaterno, aMaterno=:aMaterno, nacimiento=:nacimiento, genero=:genero, calle=:calle, numExterior=:numExterior, numInterior=:numInterior, colonia=:colonia, estado=:estado, inicioContrato=:inicioContrato, finContrato=:finContrato, especialidad=:especialidad, salario=:salario";
@@ -95,6 +130,10 @@ public class VeterinarioRepositorioImp implements VeterinarioRepositorio {
         template.update(sql, param, holder);
     }
 
+    /**
+     * Hace efectiva una operación de actualización de un veterinario.
+     * @param cliente Veterinario a actualizar.
+     */
     @Override
     public void executeUpdateVeterinario(Veterinario veterinario) {
         final String sql = "UPDATE Cliente SET idCliente=:idCliente, nombre=:nombre, aPaterno=:aPaterno, nacimiento=:nacimiento, genero=:genero WHERE idCliente=:idCliente";
@@ -126,17 +165,22 @@ public class VeterinarioRepositorioImp implements VeterinarioRepositorio {
         });
     }
 
+    
+    /**
+     * Borra un veterinario de la base de datos.
+     * @param cliente Veterinario a borrar.
+     */
     @Override
     public void deleteVeterinario(Veterinario veterinario) {
         final String sql = "DELETE FROM Veterinario WHERE RFCVeterinario=:RFCVeterinario";
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("RFCVeterinario",veterinario.getRFCVeterinario());
-            template.execute(sql,map,new PreparedStatementCallback<Object>(){
-                @Override
-                public Object doInPreparedStatement(PreparedStatement ps)
-                    throws SQLException, DataAccessException{
-                    return ps.executeUpdate();
-                }       
+        template.execute(sql,map,new PreparedStatementCallback<Object>(){
+            @Override
+            public Object doInPreparedStatement(PreparedStatement ps)
+                throws SQLException, DataAccessException{
+                return ps.executeUpdate();
+            }       
         });
     }
     

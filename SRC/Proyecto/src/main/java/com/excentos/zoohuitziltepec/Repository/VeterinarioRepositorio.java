@@ -17,7 +17,9 @@ import com.excentos.zoohuitziltepec.Model.Veterinario;
 import java.util.List;
 
 /**
- *
+ * El repositorio se comunica directamente con la base de datos por medio de JDBC
+ * haciendo uso de consultas predefinidas, las cuales se deben implementar siguiendo
+ * las firmas y descipciones especificadas en esta interfaz.
  * @author ahexo
  */
 public interface VeterinarioRepositorio {
@@ -27,6 +29,13 @@ public interface VeterinarioRepositorio {
      * @return Lista de veterinarios.
      */
     List<Veterinario> findAll();
+    
+    /**
+     * Obtener un veterinario de la base de datos en base a su RFC
+     * @param RFC RFC del veterinario.
+     * @return Veterinario buscado o un objeto vacio si es que no existe uno con el RFC especificado.
+     */
+    Veterinario selectVeterinario(String RFC);
 
     /**
      * Inserta un nuevo veterinario en la base de datos.

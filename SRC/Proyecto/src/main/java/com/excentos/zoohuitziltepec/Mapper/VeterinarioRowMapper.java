@@ -20,15 +20,24 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 /**
- *
+ * Este RowMapper transforma el resultado de una consulta SQL en la tabla de
+ * veterinarios en un objeto veterinario, operable por el resto del programa.
  * @author ahexo
  */
 public class VeterinarioRowMapper implements RowMapper<Veterinario> {
     
+    /**
+     * Construye un objeto Veterinario mapeando los datos de una entrada/tupla con los
+     * datos de un veterinario.
+     * @param rs Conjunto de valores de la tupla obtenida de la consulta SQL.
+     * @param rowNum Número de la entrada de la tupla.
+     * @return Objeto Veterinario con los valores obtenidos de la tupla.
+     * @throws SQLException.
+     */
     @Override
     public Veterinario mapRow(ResultSet rs, int rowNum) throws SQLException {
         Veterinario veterinario = new Veterinario();
-        //cliente.setIdCliente(rs.getInt("idCliente"));
+        //veterinario.setIdVeterinario(rs.getInt("idVeterinario"));
         veterinario.setRFCVeterinario(rs.getString("RFCVeterinario"));
         veterinario.setNombre(rs.getString("nombre"));
         veterinario.setaPaterno(rs.getString("aPaterno"));

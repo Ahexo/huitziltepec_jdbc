@@ -17,7 +17,10 @@ import com.excentos.zoohuitziltepec.Model.Veterinario;
 import java.util.List;
 
 /**
- *
+ * Es necesario vincular el controlador con el repositorio para obtener o hacer
+ * efectivas las consultas, para esto hay que implementar los métodos aqui 
+ * especificados en una nueva clase que comunique a ambos objetos, la cual 
+ * llamaremos "servicio para veterinarios".
  * @author ahexo
  */
 public interface VeterinarioServicio {
@@ -28,6 +31,13 @@ public interface VeterinarioServicio {
      */
     List<Veterinario> findAll();
 
+    /**
+     * Obtiene un veterinario en particular en base a su RFC
+     * @return Veterinario buscado. Si no existe, se entrega un objeto Veterinario vacío.
+     * @param RFC RFC del veterinario.
+     */
+    Veterinario selectVeterinario(String RFC);
+    
     /**
      * Inserta un nuevo veterinario en la base de datos.
      * @param veterinario Veterinario a insertar.

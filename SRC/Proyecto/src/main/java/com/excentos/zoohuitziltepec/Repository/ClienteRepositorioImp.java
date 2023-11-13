@@ -32,7 +32,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Este componente recibe las distintas consultas y operaciones solicitadas desde
  * el controlador y pre-procesadas por el servicio, para realizarlas por medio
- * de JDBC en la tabla de Clientes de la base de datos del Zoológico de Huitziltepec.
+ * de JDBC en la tabla de clientes de la base de datos del Zoológico de Huitziltepec.
  * @author ahexo
  */
 @Repository

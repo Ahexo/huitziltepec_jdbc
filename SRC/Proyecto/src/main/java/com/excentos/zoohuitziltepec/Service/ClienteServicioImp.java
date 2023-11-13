@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Este servicio pasa las peticiones hechas al servidor por medio del controlador
- * para consultar o manipular la tabla de Clientes de la base de datos del 
+ * para consultar o manipular la tabla de veterinarios de la base de datos del 
  * Zoológico de Huitziltepec.
  * @author ahexo
  */
